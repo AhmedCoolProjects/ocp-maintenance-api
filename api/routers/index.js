@@ -9,6 +9,10 @@ operationRouter.get("/", (req, res) => {
   getOperations(req, res);
 });
 
+router.get("/", (req, res) => {
+  res.send("Welcome to OCP Maintenance API");
+});
+
 router.use("/operations", operationRouter);
 
 export default router;

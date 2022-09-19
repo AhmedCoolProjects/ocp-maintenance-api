@@ -1,20 +1,14 @@
 # OCP Maintenance API (Express.js)
 
-- Dotenv configured
-- Routers configured
-- Vercel deployment configured
-- Cors configured
-
 ## GET
 
-- `/api`
-- `/api/hello`
+- `/api/v1/operations` - returns all operations
+- `/api/v1/operations/:day` - returns operations for a specific day
+- `/api/v1/operations/done` - returns all done operations
+- `/api/v1/operations/waiting` - returns all waiting operations
 
 ## POST
 
-- `/api/ask`: qst in the body
-- `/api/show/:id`: id in the path
-
-## Run
-
-`npm run dev` or `yarn dev`
+- `/api/v1/operations/finish/:id` - finish operation
+- `/api/v1/operations/finish-waiting/:id` - finish waiting operation
+- `/api/v1/operations/startdate` - set start date
