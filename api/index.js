@@ -21,7 +21,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:3000"],
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:3000",
+      "https://maintenance-ocp.vercel.app",
+      "https://maintenance-ocp.vercel.app/",
+    ],
     methods: ["GET", "POST"],
   })
 );

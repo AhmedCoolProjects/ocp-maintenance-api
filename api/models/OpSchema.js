@@ -38,15 +38,7 @@ const OpSchema = new mongoose.Schema(
     },
     Status: {
       type: String,
-      enum: [
-        "WAITING",
-        "REQUIRED",
-        "IN_PROGRESS",
-        "DONE",
-        "CANCELLED",
-        "LATENESS",
-        "SO LATE",
-      ],
+      enum: ["WAITING", "REQUIRED", "IN_PROGRESS", "DONE"],
       default: "WAITING",
     },
     OutOfDate: {
