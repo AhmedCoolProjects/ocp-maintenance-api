@@ -16,7 +16,7 @@ operationRouter.get("/all", (req, res) => {
 });
 
 // get operations by frq
-operationRouter.get("/frq", (req, res) => {
+operationRouter.get("/frq/:frq", (req, res) => {
   getOperationsByFrq(req, res);
 });
 

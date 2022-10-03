@@ -13,7 +13,7 @@ export const getOperations = async (req, res) => {
 // GET Operation by Frq
 export const getOperationsByFrq = async (req, res) => {
   try {
-    const { frq } = req.body;
+    const { frq } = req.params;
     const operations = await Operation.find({ Frq: frq });
     res.status(200).json(operations);
   } catch (er) {
