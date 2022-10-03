@@ -32,6 +32,42 @@ export const getOperationsByStatus = async (req, res) => {
   }
 };
 
+// GET Suggestion Tasks
+export const getSuggestionTasks = async (req, res) => {
+  try {
+    // get current day
+    var today = new Date();
+    var day = today.getDate();
+    // get twoweeks suggestion tasks
+    const twoWeeksOperations = await Operation.find({
+      Frq: 15,
+      Status: "WAITING",
+    });
+    // get day/15 * twoWeeksOperations.length suggestion tasks
+    const suggestionTwoWeeksTasks = twoWeeksOperations.slice(
+      0,
+      Math.floor((day * twoWeeksOperations.length) / 15)
+    );
+    // get monthly suggestion tasks
+    const monthlyOperations = await Operation.find({
+      Frq: 30,
+      Status: "WAITING",
+    });
+    // get day/30 * monthlyOperations.length suggestion tasks
+    const suggestionMonthlyTasks = monthlyOperations.slice(
+      0,
+      Math.floor((day * monthlyOperations.length) / 30)
+    );
+    // combine twoWeeks and monthly suggestion tasks
+    const suggestionTasks = suggestionTwoWeeksTasks.concat(
+      suggestionMonthlyTasks
+    );
+    res.status(200).json(suggestionTasks);
+  } catch (er) {
+    res.status(404).json({ message: er.messages });
+  }
+};
+
 // UPDATE OPERATION STATUS
 export const updateOperationStatus = async (req, res) => {
   const { status, taskId } = req.body;

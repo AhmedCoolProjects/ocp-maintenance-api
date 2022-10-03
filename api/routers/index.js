@@ -3,6 +3,7 @@ import {
   getOperations,
   getOperationsByFrq,
   getOperationsByStatus,
+  getSuggestionTasks,
   updateOperationStatus,
 } from "../controllers/OpController.js";
 
@@ -29,6 +30,11 @@ operationRouter.get("/status/:status", (req, res) => {
 // set operation status { taskId, status }
 operationRouter.post("/update/status", (req, res) => {
   updateOperationStatus(req, res);
+});
+
+// get suggested tasks
+operationRouter.get("/today/suggestions", (req, res) => {
+  getSuggestionTasks(req, res);
 });
 
 // ------------------------------ Log Router
