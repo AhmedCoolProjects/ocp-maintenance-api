@@ -1,5 +1,12 @@
 import mongoose from "mongoose";
 
+const outOfDateSchema = new mongoose.Schema({
+  date: {
+    type: Date,
+    required: true,
+  },
+});
+
 const OpSchema = new mongoose.Schema(
   {
     Lign: {
@@ -21,13 +28,30 @@ const OpSchema = new mongoose.Schema(
       type: String,
     },
     Frq: {
-      type: String,
+      type: Number,
     },
     EmployesNbr: {
       type: Number,
     },
     TimeNeeded: {
       type: Number,
+    },
+    Status: {
+      type: String,
+      enum: [
+        "WAITING",
+        "REQUIRED",
+        "IN PROGRESS",
+        "DONE",
+        "CANCELLED",
+        "LATENESS",
+        "SO LATE",
+      ],
+      default: "WAITING",
+    },
+    OutOfDate: {
+      type: [outOfDateSchema],
+      default: [],
     },
   },
   {
