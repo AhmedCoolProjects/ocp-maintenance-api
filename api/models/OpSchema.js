@@ -41,7 +41,7 @@ const OpSchema = new mongoose.Schema(
       enum: [
         "WAITING",
         "REQUIRED",
-        "IN PROGRESS",
+        "IN_PROGRESS",
         "DONE",
         "CANCELLED",
         "LATENESS",
