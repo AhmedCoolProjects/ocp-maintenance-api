@@ -21,6 +21,17 @@ export const getOperationsByFrq = async (req, res) => {
   }
 };
 
+// GET Operation by status
+export const getOperationsByStatus = async (req, res) => {
+  try {
+    const { status } = req.params;
+    const operations = await Operation.find({ Status: status });
+    res.status(200).json(operations);
+  } catch (er) {
+    res.status(404).json({ message: er.messages });
+  }
+};
+
 // UPDATE OPERATION STATUS
 export const updateOperationStatus = async (req, res) => {
   const { status, taskId } = req.body;

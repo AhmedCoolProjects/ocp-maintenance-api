@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   getOperations,
   getOperationsByFrq,
+  getOperationsByStatus,
   updateOperationStatus,
 } from "../controllers/OpController.js";
 
@@ -18,6 +19,11 @@ operationRouter.get("/all", (req, res) => {
 // get operations by frq
 operationRouter.get("/frq/:frq", (req, res) => {
   getOperationsByFrq(req, res);
+});
+
+// get operations by status
+operationRouter.get("/status/:status", (req, res) => {
+  getOperationsByStatus(req, res);
 });
 
 // set operation status { taskId, status }
