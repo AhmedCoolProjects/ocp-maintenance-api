@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { getLogs } from "../controllers/LogController.js";
 import {
   getOperations,
   getOperationsByFrq,
@@ -44,9 +45,9 @@ logRouter.get("/all", (req, res) => {
 });
 
 // add log { taskId, message, date, status }
-logRouter.post("/add", (req, res) => {
-  addLog(req, res);
-});
+// logRouter.post("/add", (req, res) => {
+//   addLog(req, res);
+// });
 
 // ------------------------------ Main Router
 router.get("/", (req, res) => {
