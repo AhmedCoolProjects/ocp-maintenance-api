@@ -10,6 +10,23 @@ export const getLogs = async (req, res) => {
   }
 };
 
+// Get How Many Logs with the same date day
+export const getLogsByDate = async (req, res) => {
+  try {
+    const listLogsDays = await Log.aggregate([
+      {
+        $group: {
+          _id: { $dateToString: { format: "%d", date: "$date" } },
+          count: { $sum: 1 },
+        },
+      },
+    ]);
+    res.status(200).json(listLogsDays);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
 // ADD LOG
 export const addLog = async (req, res) => {
   const { taskId, message, date, status } = req.body;

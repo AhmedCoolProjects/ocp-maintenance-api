@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getLogs } from "../controllers/LogController.js";
+import { getLogs, getLogsByDate } from "../controllers/LogController.js";
 import {
   getOperations,
   getOperationsByFrq,
@@ -54,6 +54,11 @@ logRouter.get("/all", (req, res) => {
 // logRouter.post("/add", (req, res) => {
 //   addLog(req, res);
 // });
+
+// get logs by date
+logRouter.get("/days", (req, res) => {
+  getLogsByDate(req, res);
+});
 
 // ------------------------------ Main Router
 router.get("/", (req, res) => {
