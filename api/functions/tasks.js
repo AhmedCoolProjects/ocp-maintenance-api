@@ -57,7 +57,7 @@ export const checkDailyTasks = async () => {
     // add a Log
     requiredTasks.forEach((task) => {
       const log = new Log({
-        tokenId: task._id,
+        taskId: task._id,
         status: StatusLog.bad,
         date: new Date(),
         message: "Task was required, But not done in time !",
@@ -136,7 +136,7 @@ export const checkTwoWeeksTasksFinal = async () => {
     // add a Log
     requiredTasks.forEach((task) => {
       const log = new Log({
-        tokenId: task._id,
+        taskId: task._id,
         status: StatusLog.bad,
         date: new Date(),
         message: "Task was required, But not done in time !",
@@ -210,7 +210,7 @@ export const checkMonthlyTasksFinal = async () => {
     // add a Log
     requiredTasks.forEach((task) => {
       const log = new Log({
-        tokenId: task._id,
+        taskId: task._id,
         status: StatusLog.bad,
         date: new Date(),
         message: "Task was required, But not done in time !",
