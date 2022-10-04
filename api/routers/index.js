@@ -3,6 +3,7 @@ import { getLogs } from "../controllers/LogController.js";
 import {
   getOperations,
   getOperationsByFrq,
+  getOperationsById,
   getOperationsByStatus,
   getSuggestionTasks,
   updateOperationStatus,
@@ -21,6 +22,11 @@ operationRouter.get("/all", (req, res) => {
 // get operations by frq
 operationRouter.get("/frq/:frq", (req, res) => {
   getOperationsByFrq(req, res);
+});
+
+// get operation by _id
+operationRouter.get("/:id", (req, res) => {
+  getOperationsById(req, res);
 });
 
 // get operations by status

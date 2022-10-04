@@ -32,6 +32,17 @@ export const getOperationsByStatus = async (req, res) => {
   }
 };
 
+// GET Operation by _id
+export const getOperationsById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const operations = await Operation.findById(id);
+    res.status(200).json(operations);
+  } catch (er) {
+    res.status(404).json({ message: er.messages });
+  }
+};
+
 // GET Suggestion Tasks
 export const getSuggestionTasks = async (req, res) => {
   try {
