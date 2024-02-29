@@ -27,6 +27,8 @@ app.use(
       "http://localhost:3000",
       "https://maintenance-ocp.vercel.app",
       "https://maintenance-ocp.vercel.app/",
+      "https://ocp.ahmedbargady.me",
+      "https://ocp.ahmedbargady.me/"
     ],
     methods: ["GET", "POST"],
   })
